@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<privilegs>
+	<module name="系统管理">
+		<resource code="organ" name="机构">
+			<operate code="manage" name="管理" />
+		</resource>
+		<resource code="role" name="角色">
+			<operate code="manage" name="管理" />
+		</resource>
+		<resource code="user" name="用户">
+			<operate code="manage" name="管理" />
+		</resource>
+		<resource code="log" name="日志">
+			<operate code="view" name="查看" />
+		</resource>
+		<resource code="index" name="索引">
+			<operate code="manage" name="管理" />
+		</resource>
+		<resource code="cache" name="缓存">
+			<operate code="manage" name="管理" />
+		</resource>
+	</module>
+</privilegs>

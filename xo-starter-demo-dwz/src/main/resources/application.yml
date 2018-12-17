@@ -1,0 +1,17 @@
+server:
+  port: 8000
+spring:
+  profiles:
+    active: dev
+  application:
+    name: admin-service
+  output:
+    ansi:
+      enabled: never
+xo:
+  cache:
+     x-auth-token: false
+     config-file: redisson-${spring.profiles.active}.yml
+logging:
+  level:
+    root: WARN

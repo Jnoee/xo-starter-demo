@@ -1,0 +1,26 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    druid:
+      url: jdbc:h2:mem:demo;DB_CLOSE_DELAY=-1
+      username: sa
+      password: null
+      initial-size: 5
+      min-idle: 0
+      max-active: 20
+  jpa:
+    database: h2
+    show-sql: true
+    properties:
+      hibernate:
+        search:
+          default:
+            elasticsearch:
+              host: http://localhost:9200
+logging:
+  level:
+    com:
+      github:
+        jnoee: DEBUG

@@ -1,1 +1,1 @@
-# xo-starter-demo
+# xo-demo

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="NewProject" default="all" basedir=".">
+	<property name="origGroupId" value="com.github.jnoee" />
+	<property name="origArtifactId" value="xo-demo" />
+	<property name="moduleNames" value="core,rest,dwz" />
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="antlibs/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+
+	<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask">
+		<classpath>
+			<pathelement location="antlibs/xmltask.jar" />
+		</classpath>
+	</taskdef>
+
+	<target name="all" depends="init,copy.project,modify.pom,modify.yml,modify.package,modify.db,destroy" description="构建新项目" />
+
+	<target name="init">
+		<input message="生成项目到哪个目录：" addproperty="destDir" defaultvalue="d:/demo" />
+		<input message="生成项目的groupId：" addproperty="destGroupId" defaultvalue="com.github.jnoee" />
+		<input message="生成项目的artifactId：" addproperty="destArtifactId" defaultvalue="demo" />
+		<script language="javascript">
+			<![CDATA[
+			    var origGroupId = project.getProperty("origGroupId");
+				var origArtifactId = project.getProperty("origArtifactId");
+				var origPackageName = origGroupId + "." + origArtifactId.replace(/\-/g, "\.");
+				var origPackagePath = origPackageName.replace(/\./g, "/");
+			    project.setProperty("origPackageName", origPackageName);
+				project.setProperty("origPackagePath", origPackagePath);
+			
+				var destGroupId = project.getProperty("destGroupId");
+				var destArtifactId = project.getProperty("destArtifactId");
+				var destPackageName = destGroupId + "." + destArtifactId;
+				var destPackagePath = destPackageName.replace(/\./g, "/");
+			    project.setProperty("destPackageName", destPackageName);
+				project.setProperty("destPackagePath", destPackagePath);
+			]]>
+		</script>
+	</target>
+
+	<target name="copy.project" description="整理项目成为一个纯Maven项目并复制到目标目录">
+		<copy todir="${destDir}">
+			<fileset dir=".">
+				<include name="*/src/" />
+				<include name="${origArtifactId}-db/" />
+				<include name="*/pom.xml" />
+				<include name="pom.xml" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="modify.pom" description="修改pom.xml文件">
+		<xmltask source="${destDir}/pom.xml" dest="${destDir}/pom.xml" encoding="UTF-8">
+			<replace path="/:project/:groupId/text()" withText="${destGroupId}" />
+			<replace path="/:project/:artifactId/text()" withText="${destArtifactId}" />
+			<remove path="/:project/:scm" />
+		</xmltask>
+		<replaceregexp file="${destDir}/pom.xml" match="^[ |\t]*[\n|\r\n]+" flags="gm" replace="" />
+		<foreach list="${moduleNames}" target="modify.pom.each" param="moduleName" delimiter="," inheritall="yes" />
+	</target>
+
+	<target name="modify.yml" description="修改application.yml文件">
+		<foreach list="${moduleNames}" target="modify.yml.each" param="moduleName" delimiter="," inheritall="yes" />
+	</target>
+
+	<target name="modify.package" description="修改项目包路径（目录）">
+		<foreach list="${moduleNames}" target="modify.package.each" param="moduleName" delimiter="," inheritall="yes" />
+		<replace dir="${destDir}" encoding="UTF-8" token="${origPackageName}" value="${destPackageName}">
+			<include name="**/*.java" />
+			<include name="**/*.ftl" />
+		</replace>
+		<replace dir="${destDir}" encoding="UTF-8" token="${origPackagePath}" value="${destPackagePath}">
+			<include name="**/*.java" />
+			<include name="**/*.ftl" />
+		</replace>
+	</target>
+
+	<target name="modify.db" description="修改数据库设计文件">
+		<move todir="${destDir}/${destArtifactId}-db">
+			<fileset dir="${destDir}/${origArtifactId}-db" />
+		</move>
+		<move file="${destDir}/${destArtifactId}-db/${origArtifactId}.sws" tofile="${destDir}/${destArtifactId}-db/${destArtifactId}.sws" />
+		<move file="${destDir}/${destArtifactId}-db/${origArtifactId}.pdm" tofile="${destDir}/${destArtifactId}-db/${destArtifactId}.pdm" />
+		<move file="${destDir}/${destArtifactId}-db/${origArtifactId}.pdb" tofile="${destDir}/${destArtifactId}-db/${destArtifactId}.pdb" />
+	</target>
+
+	<target name="destroy" description="清理多余目录和文件">
+		<delete includeemptydirs="true">
+			<fileset dir="${destDir}">
+				<and>
+					<size value="0" />
+					<type type="dir" />
+				</and>
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="modify.pom.each" description="修改子项目pom.xml文件">
+		<replaceregexp file="${destDir}/pom.xml" encoding="UTF-8" match="${origArtifactId}-${moduleName}" replace="${destArtifactId}-${moduleName}" flags="s" />
+		<replaceregexp file="${destDir}/${origArtifactId}-${moduleName}/pom.xml" encoding="UTF-8" match="${origGroupId}" replace="${destGroupId}" flags="g" />
+		<replaceregexp file="${destDir}/${origArtifactId}-${moduleName}/pom.xml" encoding="UTF-8" match="${origArtifactId}" replace="${destArtifactId}" flags="g" />
+	</target>
+
+	<target name="modify.yml.each" description="修改子项目application.yml文件">
+		<replaceregexp file="${destDir}/${origArtifactId}-${moduleName}/src/main/resources/application.yml" encoding="UTF-8" match="${origPackageName}" replace="${destPackageName}" flags="g" />
+	</target>
+
+	<target name="modify.package.each" description="修改子项目包路径（目录）">
+		<move todir="${destDir}/${destArtifactId}-${moduleName}">
+			<fileset dir="${destDir}/${origArtifactId}-${moduleName}" />
+		</move>
+		<move todir="${destDir}/${destArtifactId}-${moduleName}/src/main/java/${destPackagePath}">
+			<fileset dir="${destDir}/${destArtifactId}-${moduleName}/src/main/java/${origPackagePath}" />
+		</move>
+	</target>
+</project>

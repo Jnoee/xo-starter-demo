@@ -1,0 +1,77 @@
+app:
+  name: 演示系统
+s:
+  organ:
+    add: 新增机构成功。
+    edit: 编辑机构成功。
+    enable: 启用机构成功。
+    disable: 停用机构成功。
+  role:
+    add: 新增角色成功。
+    edit: 编辑角色成功。
+  user:
+    add: 新增用户成功。
+    edit: 编辑用户成功。
+    enable: 启用用户成功。
+    disable: 停用用户成功。
+    reset-pwd: 重置密码成功。
+  actor:
+    add: 新增职务成功。
+    edit: 编辑职务成功。
+    del: 删除职务成功。
+    set-default: 设置默认职务成功。
+  person:
+    change-pwd: 修改密码成功。
+l:
+  organ:
+    add: 新增机构[{0}]。
+    edit: 编辑机构[{0}]。
+    del: 删除机构[{0}]。
+    enable: 启用机构[{0}]。
+    disable: 停用机构[{0}]。
+  role:
+    add: 新增角色[{0}]。
+    edit: 编辑角色[{0}]。
+  user:
+    logon: 登录系统[{0}]。
+    add: 新增用户[{0}]。
+    edit: 编辑用户[{0}]。
+    del: 删除用户[{0}]。
+    enable: 启用用户[{0}]。
+    disable: 停用用户[{0}]。
+    reset-pwd: 重置用户[{0}]的密码。
+  actor:
+    add: 新增职务[{0}-{1}]。
+    edit: 编辑职务[{0}-{1}]。
+    del: 删除职务[{0}-{1}]。
+    set-default: 设置默认职务[{0}-{1}]。
+  person:
+    change-pwd: 修改密码。
+  index:
+    build: 重建全文索引成功。
+  cache:
+    evict-entity: 清理实体缓存成功。
+    evict-all-entity: 清理所有实体缓存成功。
+    evict-collection: 清理所有集合缓存成功。
+    evict-query: 清理所有查询缓存成功。
+    evict-all: 清理所有缓存成功。
+e:
+  organ:
+    add:
+      no-parent: 新增机构时必须指定上级机构。
+  role:
+    add:
+      exist: 角色名[{0}]已存在。
+  user:
+    add:
+      exist: 用户名[{0}]已存在。
+    reset-pwd:
+      admin-pwd-wrong: 管理员密码错误。
+  actor:
+    del:
+      is-default: 该职务被设置为用户默认职务无法删除。
+    change:
+      exceed: 试图切换为非法的职务。
+  person:
+    change-pwd:
+      old-pwd-wrong: 原密码错误。

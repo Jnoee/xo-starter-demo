@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/demo_test?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=UTF8
+      username: root
+      password: null
+      initial-size: 50
+      min-idle: 50
+      max-active: 500
+  jpa:
+    database: mysql
+    show-sql: false
+logging:
+  file: ./logs/xo-demo-rest.log
+  level:
+    com:
+      github:
+        jnoee: INFO

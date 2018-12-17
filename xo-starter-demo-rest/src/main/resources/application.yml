@@ -16,7 +16,7 @@ xo:
       title: 后台管理服务
       description: 后台管理服务接口
       version: 1.0
-      base-package: com.github.jnoee.xo.demo.api
+      base-package: com.github.jnoee.xo.starter.demo.api
 logging:
   level:
     root: WARN

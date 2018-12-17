@@ -22,6 +22,14 @@ s:
     set-default: 设置默认职务成功。
   person:
     change-pwd: 修改密码成功。
+  index:
+    build: 重建全文索引成功。
+  cache:
+    evict-entity: 清理实体缓存成功。
+    evict-all-entity: 清理所有实体缓存成功。
+    evict-collection: 清理所有集合缓存成功。
+    evict-query: 清理所有查询缓存成功。
+    evict-all: 清理所有缓存成功。
 l:
   organ:
     add: 新增机构[{0}]。
@@ -47,14 +55,6 @@ l:
     set-default: 设置默认职务[{0}-{1}]。
   person:
     change-pwd: 修改密码。
-  index:
-    build: 重建全文索引成功。
-  cache:
-    evict-entity: 清理实体缓存成功。
-    evict-all-entity: 清理所有实体缓存成功。
-    evict-collection: 清理所有集合缓存成功。
-    evict-query: 清理所有查询缓存成功。
-    evict-all: 清理所有缓存成功。
 e:
   organ:
     add:
@@ -63,6 +63,8 @@ e:
     add:
       exist: 角色名[{0}]已存在。
   user:
+    get:
+      not-exist: 没有找到ID为[{0}]的用户。
     add:
       exist: 用户名[{0}]已存在。
     reset-pwd:

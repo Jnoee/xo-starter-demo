@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="NewProject" default="all" basedir=".">
 	<property name="origGroupId" value="com.github.jnoee" />
-	<property name="origArtifactId" value="xo-demo" />
+	<property name="origArtifactId" value="xo-starter-demo" />
 	<property name="moduleNames" value="core,rest,dwz" />
 
 	<taskdef resource="net/sf/antcontrib/antcontrib.properties">

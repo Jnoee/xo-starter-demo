@@ -18,7 +18,7 @@
 	</scm>
 
 	<properties>
-		<xo-starter.version>1.0.1-SNAPSHOT</xo-starter.version>
+		<xo-starter.version>1.0.2-SNAPSHOT</xo-starter.version>
 	</properties>
 
 	<dependencies>

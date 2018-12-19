@@ -10,6 +10,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.github.jnoee</groupId>
+			<artifactId>xo-starter-banner</artifactId>
+			<version>${xo-starter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.jnoee</groupId>
 			<artifactId>xo-starter-cache</artifactId>
 			<version>${xo-starter.version}</version>
 		</dependency>

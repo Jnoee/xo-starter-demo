@@ -4,7 +4,7 @@
 
 <Workspace>
 	<Local Expanded="Yes" Name="db">
-		<Model Expanded="Yes" ID="{E853D22A-4239-40A3-9C38-BBFCA1ECAD1B}" Name="db" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="xo-starter-demo.pdm"/>
+		<Model Expanded="Yes" ID="{E853D22A-4239-40A3-9C38-BBFCA1ECAD1B}" Name="db" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="/docs/分析平台/ecal.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

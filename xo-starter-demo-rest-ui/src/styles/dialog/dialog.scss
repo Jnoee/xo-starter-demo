@@ -1,0 +1,19 @@
+.all-dialog {
+    .el-dialog__header {
+        padding-top: 10px;
+        background: #42a4ff;
+        .el-dialog__headerbtn {
+            top:13px;
+            .el-dialog__close {
+                color: #FFF;
+            }
+        }
+    }
+    .el-dialog__title {
+        font-size: 16px;
+        color:#FFF;
+    }
+    .el-dialog__body {
+        padding: 0 20px 20px;
+    }
+}

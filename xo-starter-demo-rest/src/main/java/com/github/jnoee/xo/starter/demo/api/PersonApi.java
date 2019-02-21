@@ -3,7 +3,7 @@ package com.github.jnoee.xo.starter.demo.api;
 import java.util.List;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +48,7 @@ public class PersonApi {
   @ApiImplicitParam(name = "actorId", value = "职务ID", required = true)
   @PatchMapping("actor-switch")
   @RequiresAuthentication
-  public List<String> changeActor(@RequestParam(required = true) @NotBlank String actorId) {
+  public List<String> changeActor(@RequestParam(required = true) @NotNull Long actorId) {
     userService.changeActor(actorId);
     return userService.getLogonUser().getDefaultActor().getRole().getPrivilegs();
   }

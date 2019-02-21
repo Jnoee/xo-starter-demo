@@ -5,13 +5,13 @@ package com.github.jnoee.xo.starter.demo.constants;
  */
 public class AdminIds {
   /** 系统根机构ID */
-  public static final String ORGAN_ID = "ADMINOID-0000-0000-0000-000000000000";
+  public static final Long ORGAN_ID = 100000000000000000L;
   /** 管理员用户ID */
-  public static final String USER_ID = "ADMINUID-0000-0000-0000-000000000000";
+  public static final Long USER_ID = 100000000000000001L;
   /** 管理员角色ID */
-  public static final String ROLE_ID = "ADMINRID-0000-0000-0000-000000000000";
+  public static final Long ROLE_ID = 100000000000000002L;
   /** 管理员职务ID */
-  public static final String ACTOR_ID = "ADMINAID-0000-0000-0000-000000000000";
+  public static final Long ACTOR_ID = 100000000000000003L;
   /** 初始密码 */
   public static final String NEW_SALT = "666666";
 

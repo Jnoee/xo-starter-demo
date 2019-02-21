@@ -41,7 +41,7 @@ public class RoleApi {
 
   @ApiOperation(value = "获取角色信息")
   @GetMapping("{id}")
-  public RoleVo get(@PathVariable String id) {
+  public RoleVo get(@PathVariable Long id) {
     return RoleVo.forView(roleService.get(id));
   }
 

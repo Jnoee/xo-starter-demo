@@ -26,7 +26,7 @@ public class RoleService {
   private MessageSource messageSource;
 
   @Transactional(readOnly = true)
-  public Role get(String roleId) {
+  public Role get(Long roleId) {
     return roleDao.get(roleId);
   }
 

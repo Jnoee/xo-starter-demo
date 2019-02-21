@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import com.github.jnoee.xo.jpa.entity.UuidEntity;
+import com.github.jnoee.xo.jpa.entity.IdEntity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +22,7 @@ import lombok.Setter;
 @Cache(region = "actor", usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Getter
 @Setter
-public class Actor extends UuidEntity {
+public class Actor extends IdEntity {
   /** 关联机构 */
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "organId")

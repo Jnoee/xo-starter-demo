@@ -22,7 +22,7 @@ public class ActorService {
   private MessageSource messageSource;
 
   @Transactional(readOnly = true)
-  public Actor get(String actorId) {
+  public Actor get(Long actorId) {
     return actorDao.get(actorId);
   }
 

@@ -42,7 +42,7 @@ public class UserApi {
 
   @ApiOperation(value = "获取用户信息")
   @GetMapping("{id}")
-  public UserVo get(@PathVariable String id) {
+  public UserVo get(@PathVariable Long id) {
     return UserVo.forView(userService.get(id));
   }
 

@@ -32,7 +32,7 @@ public class OrganAction {
   private MessageSource messageSource;
 
   @RequestMapping("organ-list")
-  public void list(Model model, String selectedOrganId) {
+  public void list(Model model, Long selectedOrganId) {
     Organ rootOrgan = organService.getRoot();
     if (selectedOrganId == null) {
       selectedOrganId = rootOrgan.getId();

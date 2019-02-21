@@ -1,6 +1,7 @@
 package com.github.jnoee.xo.starter.demo.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.github.jnoee.xo.starter.demo.entity.Actor;
 import com.github.jnoee.xo.starter.demo.entity.Organ;
@@ -16,10 +17,12 @@ public class ActorAddDto {
   @NotBlank
   @ApiModelProperty(value = "名称")
   private String name;
+  @NotNull
   @ApiModelProperty(value = "机构ID")
-  private String organId;
+  private Long organId;
+  @NotNull
   @ApiModelProperty(value = "角色ID")
-  private String roleId;
+  private Long roleId;
 
   public Actor toActor(User user) {
     Actor actor = VoUtils.copy(this, Actor.class);

@@ -35,7 +35,7 @@ public class LogApi {
   @ApiOperation(value = "获取详细日志")
   @GetMapping("{id}")
   @RequiresPermissions("log:view")
-  public LogVo get(@PathVariable String id) {
+  public LogVo get(@PathVariable Long id) {
     return LogVo.forView(bizLogService.getLog(id));
   }
 }

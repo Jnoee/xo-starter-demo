@@ -1,12 +1,12 @@
 package com.github.jnoee.xo.starter.demo.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
 
 import com.github.jnoee.xo.constant.ValidGroup;
 import com.github.jnoee.xo.starter.demo.entity.Organ;
-import com.github.jnoee.xo.utils.StringUtils;
 import com.github.jnoee.xo.utils.VoUtils;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -14,9 +14,9 @@ import lombok.Data;
 
 @Data
 public class OrganAddDto {
-  @NotBlank(groups = ValidGroup.Add.class)
+  @NotNull(groups = ValidGroup.Add.class)
   @ApiModelProperty(value = "父机构ID", required = true, allowEmptyValue = true)
-  private String parentId;
+  private Long parentId;
   @NotBlank
   @ApiModelProperty(value = "名称", required = true)
   private String name;
@@ -27,7 +27,7 @@ public class OrganAddDto {
   public Organ toOrgan() {
     Organ organ = VoUtils.copy(this, Organ.class);
 
-    if (StringUtils.isNotBlank(parentId)) {
+    if (parentId != null) {
       Organ parentOrgan = new Organ();
       parentOrgan.setId(parentId);
       organ.setParent(parentOrgan);

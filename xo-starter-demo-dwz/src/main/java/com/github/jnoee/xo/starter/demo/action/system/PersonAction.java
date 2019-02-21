@@ -56,7 +56,7 @@ public class PersonAction {
    * @return 返回主页。
    */
   @RequestMapping("person-actor-change")
-  public ModelAndView change(String actorId) {
+  public ModelAndView change(Long actorId) {
     userService.changeActor(actorId);
     return new ModelAndView("redirect:/index");
   }

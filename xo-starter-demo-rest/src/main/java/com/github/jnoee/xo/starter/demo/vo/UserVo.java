@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 public class UserVo {
   @ApiModelProperty(value = "ID")
-  private String id;
+  private Long id;
   @ApiModelProperty(value = "用户名")
   private String username;
   @ApiModelProperty(value = "姓名")

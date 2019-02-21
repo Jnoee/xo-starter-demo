@@ -13,9 +13,9 @@ import lombok.Data;
 
 @Data
 public class UserEditDto {
-  @NotBlank
+  @NotNull
   @ApiModelProperty(value = "用户ID", required = true)
-  private String id;
+  private Long id;
   @NotBlank
   @ApiModelProperty(value = "用户名", required = true)
   private String username;

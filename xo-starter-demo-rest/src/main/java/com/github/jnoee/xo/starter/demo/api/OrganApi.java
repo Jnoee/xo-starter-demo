@@ -44,7 +44,7 @@ public class OrganApi {
 
   @ApiOperation(value = "获取机构信息")
   @GetMapping("{id}")
-  public OrganVo get(@PathVariable String id) {
+  public OrganVo get(@PathVariable Long id) {
     return OrganVo.forView(organService.get(id));
   }
 

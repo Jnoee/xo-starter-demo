@@ -34,7 +34,7 @@ public class RoleAction {
   private MessageSource messageSource;
 
   @RequestMapping("role-list")
-  public void list(Model model, String selectedRoleId) {
+  public void list(Model model, Long selectedRoleId) {
     List<Role> roles = roleService.getAll();
     if (selectedRoleId == null) {
       selectedRoleId = roles.get(0).getId();

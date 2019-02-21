@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 public class LogVo {
   @ApiModelProperty(value = "ID")
-  private String id;
+  private Long id;
   @ApiModelProperty(value = "操作人")
   private String operator;
   @ApiModelProperty(value = "操作时间")

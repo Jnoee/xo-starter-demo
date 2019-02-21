@@ -25,14 +25,12 @@ public class UserAddDto {
   @Range(min = 1, max = 999)
   @ApiModelProperty(value = "序号", required = true, example = "999")
   private Integer ordinal;
-  @NotBlank
-  @ApiModelProperty(value = "机构ID", required = true,
-      example = "ADMINOID-0000-0000-0000-000000000000")
-  private String organId;
-  @NotBlank
-  @ApiModelProperty(value = "角色ID", required = true,
-      example = "ADMINRID-0000-0000-0000-000000000000")
-  private String roleId;
+  @NotNull
+  @ApiModelProperty(value = "机构ID", required = true, example = "100000000000000000")
+  private Long organId;
+  @NotNull
+  @ApiModelProperty(value = "角色ID", required = true, example = "100000000000000002")
+  private Long roleId;
   @NotBlank
   @ApiModelProperty(value = "职务名称", required = true, example = "测试组长")
   private String actorName;

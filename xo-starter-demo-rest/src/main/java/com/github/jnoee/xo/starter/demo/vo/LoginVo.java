@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class LoginVo {
   @ApiModelProperty(value = "ID")
-  private String id;
+  private Long id;
   @ApiModelProperty(value = "姓名")
   private String name;
   @ApiModelProperty(value = "机构名称")

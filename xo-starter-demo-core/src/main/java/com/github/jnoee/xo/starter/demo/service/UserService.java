@@ -78,7 +78,7 @@ public class UserService implements AuthUserService<User> {
   }
 
   @Transactional(readOnly = true)
-  public User get(String id) {
+  public User get(Long id) {
     User user = userDao.get(id);
     if (user == null) {
       messageSource.thrown("e.user.get.not-exist", id);
@@ -167,7 +167,7 @@ public class UserService implements AuthUserService<User> {
    * @param actorId 职务ID
    */
   @Transactional
-  public void changeActor(String actorId) {
+  public void changeActor(Long actorId) {
     User currentUser = getLogonUser();
     Actor actor = actorDao.get(actorId);
     if (!currentUser.getActors().contains(actor)) {

@@ -12,17 +12,17 @@ import lombok.Data;
 @Data
 public class ActorVo {
   @ApiModelProperty(value = "ID")
-  private String id;
+  private Long id;
   @ApiModelProperty(value = "名称")
   private String name;
   @ApiModelProperty(value = "是否默认职务")
   private Boolean defaulted;
   @ApiModelProperty(value = "机构ID")
-  private String organId;
+  private Long organId;
   @ApiModelProperty(value = "机构名称")
   private String organName;
   @ApiModelProperty(value = "角色ID")
-  private String roleId;
+  private Long roleId;
   @ApiModelProperty(value = "角色名称")
   private String roleName;
 

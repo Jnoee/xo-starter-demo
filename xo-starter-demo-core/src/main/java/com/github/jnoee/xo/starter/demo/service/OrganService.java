@@ -27,7 +27,7 @@ public class OrganService {
   private MessageSource messageSource;
 
   @Transactional(readOnly = true)
-  public Organ get(String id) {
+  public Organ get(Long id) {
     return organDao.get(id);
   }
 

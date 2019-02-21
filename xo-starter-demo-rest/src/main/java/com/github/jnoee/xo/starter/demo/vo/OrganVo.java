@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 public class OrganVo {
   @ApiModelProperty(value = "ID")
-  private String id;
+  private Long id;
   @ApiModelProperty(value = "名称")
   private String name;
   @ApiModelProperty(value = "启用状态")

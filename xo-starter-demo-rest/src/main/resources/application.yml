@@ -1,22 +1,12 @@
-server:
-  port: 8000
-spring:
-  profiles:
-    active: dev
-  application:
-    name: admin-service
-  output:
-    ansi:
-      enabled: never
-xo:
-  cache:
-    config-file: redisson-${spring.profiles.active}.yml
-  api:
-    doc:
-      title: 后台管理服务
-      description: 后台管理服务接口
-      version: 1.0
-      base-package: com.github.jnoee.xo.starter.demo.api
+spring.profiles.active: dev
+spring.application.name: demo-rest
+spring.output.ansi.enabled: never
+xo.cache.config-file: redisson-${spring.profiles.active}.yml
+xo.api.doc:
+  title: 后台管理服务
+  description: 后台管理服务接口
+  version: 1.0
+  base-package: com.github.jnoee.xo.starter.demo.api
 logging:
   level:
-    root: WARN
+    root: warn

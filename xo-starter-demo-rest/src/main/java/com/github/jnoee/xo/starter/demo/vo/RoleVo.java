@@ -23,6 +23,6 @@ public class RoleVo {
   }
 
   public static List<RoleVo> forList(List<Role> roles) {
-    return VoUtils.copy(roles, RoleVo.class, "privilegs");
+    return VoUtils.copyExclude(roles, RoleVo.class, "privilegs");
   }
 }

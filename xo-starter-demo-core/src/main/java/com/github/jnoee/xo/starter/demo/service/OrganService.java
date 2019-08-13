@@ -44,7 +44,7 @@ public class OrganService {
   @DetailLog(target = "organ", code = "l.organ.edit", vars = "organ.name", type = LogType.ALL)
   public void update(Organ organ) {
     Organ origOrgan = get(organ.getId());
-    BeanUtils.copyFields(organ, origOrgan, "ordinal", "enabled");
+    BeanUtils.copyFieldsExclude(organ, origOrgan, "enabled", "ordinal");
   }
 
   @Transactional

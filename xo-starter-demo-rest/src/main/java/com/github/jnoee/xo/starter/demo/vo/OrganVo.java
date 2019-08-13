@@ -24,7 +24,7 @@ public class OrganVo {
   private List<OrganVo> childs = new ArrayList<>();
 
   public static OrganVo forView(Organ organ) {
-    return VoUtils.copy(organ, OrganVo.class, "childs");
+    return VoUtils.copyExclude(organ, OrganVo.class, "childs");
   }
 
   public static OrganVo forTree(Organ organ) {

@@ -22,7 +22,7 @@ public class RoleAddDto {
   private String[] privilegs;
 
   public Role toRole() {
-    Role role = VoUtils.copy(this, Role.class, "privilegs");
+    Role role = VoUtils.copyExclude(this, Role.class, "privilegs");
     role.setPrivilegs(CollectionUtils.toList(privilegs));
     return role;
   }

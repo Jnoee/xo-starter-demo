@@ -42,7 +42,7 @@ public class LogVo {
   }
 
   private static LogVo forList(BizLog bizLog) {
-    LogVo vo = VoUtils.copy(bizLog, LogVo.class, "newData,origData");
+    LogVo vo = VoUtils.copyExclude(bizLog, LogVo.class, "newData,origData");
     vo.hasData = bizLog.hasData();
     return vo;
   }

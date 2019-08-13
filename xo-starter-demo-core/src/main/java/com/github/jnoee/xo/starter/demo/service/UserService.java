@@ -109,7 +109,7 @@ public class UserService implements AuthUserService<User> {
       messageSource.thrown("e.user.add.exist", user.getUsername());
     }
     User origUser = get(user.getId());
-    BeanUtils.copyFields(user, origUser, "enabled");
+    BeanUtils.copyFieldsExclude(user, origUser, "enabled");
   }
 
   @Transactional

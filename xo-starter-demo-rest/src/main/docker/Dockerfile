@@ -1,18 +1,14 @@
-FROM hub.sz.cntest.com:5000/centos7.4-jdk8
+FROM jnoee/java:8
 
-ENV WORK_PATH /home/dev/demo
+ENV WORK_PATH /home/apps/@project.artifactId@
 ENV APP_NAME @project.build.finalName@.@project.packaging@
-ENV APP_VERSION @project.version@
 
-EXPOSE 8000
-
-ENV spring.profiles.active test
+ENV JAVA_SERVER_OPTS -Djava.security.egd=file:/dev/./urandom -server
 
 COPY $APP_NAME $WORK_PATH/
 
 WORKDIR $WORK_PATH
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom"]
-CMD ["-jar", "@project.build.finalName@.@project.packaging@"]
+ENTRYPOINT java $JAVA_SERVER_OPTS $JAVA_OPTS -jar $APP_NAME
 
-HEALTHCHECK CMD curl -fs localhost:8000/actuator/health || exit 1
+HEALTHCHECK CMD curl -fs localhost:8080/actuator/health || exit 1

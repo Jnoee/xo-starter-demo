@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>com.github.jnoee</groupId>
 		<artifactId>xo-dependencies</artifactId>
-		<version>1.0.5</version>
+		<version>1.0.7</version>
 	</parent>
 
 	<scm>
@@ -18,7 +18,7 @@
 	</scm>
 
 	<properties>
-		<xo-starter.version>1.0.2-SNAPSHOT</xo-starter.version>
+		<xo-starter.version>1.0.3-SNAPSHOT</xo-starter.version>
 	</properties>
 
 	<dependencies>

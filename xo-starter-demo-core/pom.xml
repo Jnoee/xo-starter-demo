@@ -15,7 +15,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.jnoee</groupId>
-			<artifactId>xo-starter-cache</artifactId>
+			<artifactId>xo-starter-session</artifactId>
 			<version>${xo-starter.version}</version>
 		</dependency>
 		<dependency>

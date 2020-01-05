@@ -10,7 +10,7 @@ singleServerConfig:
   retryAttempts: 3
   retryInterval: 1500
   subscriptionsPerConnection: 5
-  subscriptionConnectionMinimumIdleSize: 1
-  subscriptionConnectionPoolSize: 50
-  connectionMinimumIdleSize: 32
-  connectionPoolSize: 64
+  subscriptionConnectionMinimumIdleSize: 5
+  subscriptionConnectionPoolSize: 10
+  connectionMinimumIdleSize: 5
+  connectionPoolSize: 10

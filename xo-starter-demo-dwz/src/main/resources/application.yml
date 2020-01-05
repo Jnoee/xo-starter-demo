@@ -3,6 +3,4 @@ spring.application.name: admin-service
 spring.output.ansi.enabled: never
 xo.cache.redisson.config-file: redisson-${spring.profiles.active}.yml
 xo.session.token: false
-logging:
-  level:
-    root: warn
+logging.level.root: warn

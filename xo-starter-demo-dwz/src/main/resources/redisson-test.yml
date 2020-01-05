@@ -12,5 +12,5 @@ singleServerConfig:
   subscriptionsPerConnection: 5
   subscriptionConnectionMinimumIdleSize: 5
   subscriptionConnectionPoolSize: 50
-  connectionMinimumIdleSize: 20
-  connectionPoolSize: 100
+  connectionMinimumIdleSize: 10
+  connectionPoolSize: 50

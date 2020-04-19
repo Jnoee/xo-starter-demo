@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.dto;
+package com.github.jnoee.xo.starter.demo.api.organ;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class OrganAddDto {
+public class OrganAddReq {
   @NotNull(groups = ValidGroup.Add.class)
   @ApiModelProperty(value = "父机构ID", required = true, allowEmptyValue = true)
   private Long parentId;

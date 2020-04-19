@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.dto;
+package com.github.jnoee.xo.starter.demo.api.organ;
 
 import javax.validation.constraints.NotNull;
 
@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class OrganEditDto extends OrganAddDto {
+public class OrganEditReq extends OrganAddReq {
   @NotNull
   @ApiModelProperty(value = "ID", required = true)
   private Long id;

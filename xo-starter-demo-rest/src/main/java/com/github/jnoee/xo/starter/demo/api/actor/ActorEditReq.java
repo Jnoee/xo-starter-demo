@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.dto;
+package com.github.jnoee.xo.starter.demo.api.actor;
 
 import javax.validation.constraints.NotNull;
 
@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class ActorEditDto extends ActorAddDto {
+public class ActorEditReq extends ActorAddReq {
   @NotNull
   @ApiModelProperty(value = "ID", required = true)
   private Long id;

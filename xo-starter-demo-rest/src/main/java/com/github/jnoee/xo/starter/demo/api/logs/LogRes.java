@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.vo;
+package com.github.jnoee.xo.starter.demo.api.logs;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class LogVo {
+public class LogRes {
   @ApiModelProperty(value = "ID")
   private Long id;
   @ApiModelProperty(value = "操作人")
@@ -26,23 +26,23 @@ public class LogVo {
   @ApiModelProperty(value = "是否记录了业务数据")
   private Boolean hasData;
 
-  public static LogVo forView(BizLog bizLog) {
-    LogVo vo = VoUtils.copy(bizLog, LogVo.class);
+  public static LogRes forView(BizLog bizLog) {
+    LogRes vo = VoUtils.copy(bizLog, LogRes.class);
     vo.hasData = bizLog.hasData();
     return vo;
   }
 
-  public static Page<LogVo> forPage(Page<BizLog> bizLogPage) {
-    Page<LogVo> voPage =
+  public static Page<LogRes> forPage(Page<BizLog> bizLogPage) {
+    Page<LogRes> voPage =
         new Page<>(bizLogPage.getCount(), bizLogPage.getNumber(), bizLogPage.getSize());
     for (BizLog bizLog : bizLogPage.getContents()) {
-      voPage.getContents().add(LogVo.forList(bizLog));
+      voPage.getContents().add(LogRes.forList(bizLog));
     }
     return voPage;
   }
 
-  private static LogVo forList(BizLog bizLog) {
-    LogVo vo = VoUtils.copyExclude(bizLog, LogVo.class, "newData,origData");
+  private static LogRes forList(BizLog bizLog) {
+    LogRes vo = VoUtils.copyExclude(bizLog, LogRes.class, "newData,origData");
     vo.hasData = bizLog.hasData();
     return vo;
   }

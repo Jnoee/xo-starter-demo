@@ -9,13 +9,12 @@ import lombok.Getter;
 /**
  * 启用状态。
  */
+@Getter
 public enum EnabledStatus implements IEnum {
   DISABLED("停用", "0", Color.GRAY), ENABLED("启用", "1", Color.GREEN);
-  @Getter
+
   private String text;
-  @Getter
   private String value;
-  @Getter
   private String color;
 
   /**
@@ -33,6 +32,6 @@ public enum EnabledStatus implements IEnum {
 
   @Override
   public String toString() {
-    return text;
+    return value;
   }
 }

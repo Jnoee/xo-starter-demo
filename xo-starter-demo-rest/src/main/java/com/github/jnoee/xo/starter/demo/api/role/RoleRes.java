@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.vo;
+package com.github.jnoee.xo.starter.demo.api.role;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class RoleVo {
+public class RoleRes {
   @ApiModelProperty(value = "ID")
   private Long id;
   @ApiModelProperty(value = "名称")
@@ -18,11 +18,11 @@ public class RoleVo {
   @ApiModelProperty(value = "权限")
   private List<String> privilegs = new ArrayList<>();
 
-  public static RoleVo forView(Role role) {
-    return VoUtils.copy(role, RoleVo.class);
+  public static RoleRes forView(Role role) {
+    return VoUtils.copy(role, RoleRes.class);
   }
 
-  public static List<RoleVo> forList(List<Role> roles) {
-    return VoUtils.copyExclude(roles, RoleVo.class, "privilegs");
+  public static List<RoleRes> forList(List<Role> roles) {
+    return VoUtils.copyExclude(roles, RoleRes.class, "privilegs");
   }
 }

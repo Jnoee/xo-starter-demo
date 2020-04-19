@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.dto;
+package com.github.jnoee.xo.starter.demo.api.actor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class ActorAddDto {
+public class ActorAddReq {
   @NotBlank
   @ApiModelProperty(value = "名称")
   private String name;

@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.dto;
+package com.github.jnoee.xo.starter.demo.api;
 
 import javax.validation.constraints.NotBlank;
 
@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class PwdChangeDto {
+public class PwdChangeReq {
   @NotBlank
   @ApiModelProperty(value = "旧密码", required = true, example = "666666")
   private String oldPwd;

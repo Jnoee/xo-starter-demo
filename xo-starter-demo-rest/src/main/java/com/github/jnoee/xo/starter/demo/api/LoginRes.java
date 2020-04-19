@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.vo;
+package com.github.jnoee.xo.starter.demo.api;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class LoginVo {
+public class LoginRes {
   @ApiModelProperty(value = "ID")
   private Long id;
   @ApiModelProperty(value = "姓名")
@@ -21,7 +21,7 @@ public class LoginVo {
   @ApiModelProperty(value = "权限列表")
   private List<String> privilegs = new ArrayList<>();
 
-  public LoginVo(User user, List<String> privilegs) {
+  public LoginRes(User user, List<String> privilegs) {
     id = user.getId();
     name = user.getName();
     organName = user.getDefaultActor().getOrgan().getName();

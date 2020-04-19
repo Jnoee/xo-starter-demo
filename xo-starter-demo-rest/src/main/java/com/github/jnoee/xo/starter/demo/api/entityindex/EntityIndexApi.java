@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.api;
+package com.github.jnoee.xo.starter.demo.api.entityindex;
 
 import java.util.List;
 
@@ -16,25 +16,28 @@ import com.github.jnoee.xo.jpa.search.index.EntityIndexManager;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiOperationSupport;
 
 @RestController
-@RequestMapping(path = "/entity-indexs", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-@Api(tags = "索引")
+@RequestMapping(path = "/entity-index", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@Api(tags = "2.6.索引")
 @RequiresPermissions("index:manage")
 public class EntityIndexApi {
   @Autowired
   private EntityIndexManager entityIndexManager;
 
-  @ApiOperation(value = "查询索引列表", response = String.class, responseContainer = "List")
-  @GetMapping
+  @ApiOperation(value = "2.6.1.查询列表", response = String.class, responseContainer = "List")
+  @GetMapping("list")
+  @ApiOperationSupport(order = 1)
   public List<Class<?>> listIndexedEntity() {
     return entityIndexManager.getIndexedEntityClasses();
   }
 
-  @ApiOperation(value = "重建索引")
+  @ApiOperation(value = "2.6.2.重建索引")
   @ApiImplicitParam(name = "indexedEntityClasses", value = "索引实体类名", required = true,
       dataType = "String", allowMultiple = true)
   @PostMapping("build")
+  @ApiOperationSupport(order = 2)
   public void buildIndexedEntity(@RequestBody Class<?>[] indexedEntityClasses) {
     entityIndexManager.startAndWait(indexedEntityClasses);
   }

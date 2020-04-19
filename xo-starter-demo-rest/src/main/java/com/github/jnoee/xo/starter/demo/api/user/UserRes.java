@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.vo;
+package com.github.jnoee.xo.starter.demo.api.user;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class UserVo {
+public class UserRes {
   @ApiModelProperty(value = "ID")
   private Long id;
   @ApiModelProperty(value = "用户名")
@@ -33,18 +33,18 @@ public class UserVo {
   @ApiModelProperty(value = "序号")
   private Integer ordinal;
 
-  public static UserVo forView(User user) {
-    UserVo vo = VoUtils.copy(user, UserVo.class);
+  public static UserRes forView(User user) {
+    UserRes vo = VoUtils.copy(user, UserRes.class);
     vo.createUser = user.getCreateUser().getName();
     vo.updateUser = user.getUpdateUser().getName();
     vo.defaultActor = user.getDefaultActor().getFullName();
     return vo;
   }
 
-  public static Page<UserVo> forPage(Page<User> userPage) {
-    Page<UserVo> voPage = new Page<>(userPage.getCount(), userPage.getNumber(), userPage.getSize());
+  public static Page<UserRes> forPage(Page<User> userPage) {
+    Page<UserRes> voPage = new Page<>(userPage.getCount(), userPage.getNumber(), userPage.getSize());
     for (User user : userPage.getContents()) {
-      voPage.getContents().add(UserVo.forView(user));
+      voPage.getContents().add(UserRes.forView(user));
     }
     return voPage;
   }

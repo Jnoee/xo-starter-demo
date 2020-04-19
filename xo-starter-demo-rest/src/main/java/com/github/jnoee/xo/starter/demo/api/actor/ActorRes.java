@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.vo;
+package com.github.jnoee.xo.starter.demo.api.actor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class ActorVo {
+public class ActorRes {
   @ApiModelProperty(value = "ID")
   private Long id;
   @ApiModelProperty(value = "名称")
@@ -26,27 +26,18 @@ public class ActorVo {
   @ApiModelProperty(value = "角色名称")
   private String roleName;
 
-  public static List<ActorVo> forList(User user) {
-    List<ActorVo> vos = new ArrayList<>();
+  public static List<ActorRes> forList(User user) {
+    List<ActorRes> vos = new ArrayList<>();
     for (Actor actor : user.getActors()) {
-      ActorVo vo = forView(actor);
+      ActorRes vo = forView(actor);
       vo.defaulted = user.getDefaultActor().equals(actor);
       vos.add(vo);
     }
     return vos;
   }
 
-  public static ActorVo forEdit(Actor actor) {
-    ActorVo vo = new ActorVo();
-    vo.id = actor.getId();
-    vo.name = actor.getName();
-    vo.organId = actor.getOrgan().getId();
-    vo.roleId = actor.getRole().getId();
-    return vo;
-  }
-
-  private static ActorVo forView(Actor actor) {
-    ActorVo vo = new ActorVo();
+  private static ActorRes forView(Actor actor) {
+    ActorRes vo = new ActorRes();
     vo.id = actor.getId();
     vo.name = actor.getName();
     vo.organName = actor.getOrgan().getName();

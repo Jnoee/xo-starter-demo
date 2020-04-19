@@ -1,4 +1,4 @@
-package com.github.jnoee.xo.starter.demo.vo;
+package com.github.jnoee.xo.starter.demo.api.organ;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class OrganVo {
+public class OrganRes {
   @ApiModelProperty(value = "ID")
   private Long id;
   @ApiModelProperty(value = "名称")
@@ -21,14 +21,14 @@ public class OrganVo {
   @ApiModelProperty(value = "排序")
   private Integer ordinal;
   @ApiModelProperty(value = "下级机构")
-  private List<OrganVo> childs = new ArrayList<>();
+  private List<OrganRes> childs = new ArrayList<>();
 
-  public static OrganVo forView(Organ organ) {
-    return VoUtils.copyExclude(organ, OrganVo.class, "childs");
+  public static OrganRes forView(Organ organ) {
+    return VoUtils.copyExclude(organ, OrganRes.class, "childs");
   }
 
-  public static OrganVo forTree(Organ organ) {
-    OrganVo vo = forView(organ);
+  public static OrganRes forTree(Organ organ) {
+    OrganRes vo = forView(organ);
     for (Organ child : organ.getChilds()) {
       vo.childs.add(forTree(child));
     }

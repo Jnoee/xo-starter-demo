@@ -3,9 +3,11 @@ package com.github.jnoee.xo.starter.demo.api;
 import javax.validation.constraints.NotBlank;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class PwdChangeReq {
   @NotBlank
   @ApiModelProperty(value = "旧密码", required = true, example = "666666")

@@ -8,9 +8,11 @@ import com.github.jnoee.xo.starter.demo.enums.EnabledStatus;
 import com.github.jnoee.xo.utils.VoUtils;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class UserRes {
   @ApiModelProperty(value = "ID")
   private Long id;
@@ -42,7 +44,8 @@ public class UserRes {
   }
 
   public static Page<UserRes> forPage(Page<User> userPage) {
-    Page<UserRes> voPage = new Page<>(userPage.getCount(), userPage.getNumber(), userPage.getSize());
+    Page<UserRes> voPage =
+        new Page<>(userPage.getCount(), userPage.getNumber(), userPage.getSize());
     for (User user : userPage.getContents()) {
       voPage.getContents().add(UserRes.forView(user));
     }

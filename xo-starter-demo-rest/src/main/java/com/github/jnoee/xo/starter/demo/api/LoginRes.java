@@ -6,9 +6,11 @@ import java.util.List;
 import com.github.jnoee.xo.starter.demo.entity.User;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class LoginRes {
   @ApiModelProperty(value = "ID")
   private Long id;

@@ -11,9 +11,11 @@ import com.github.jnoee.xo.starter.demo.entity.Role;
 import com.github.jnoee.xo.starter.demo.entity.User;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class UserAddReq {
   @NotBlank
   @ApiModelProperty(value = "用户名", required = true, example = "test001")

@@ -10,9 +10,11 @@ import com.github.jnoee.xo.starter.demo.entity.Organ;
 import com.github.jnoee.xo.utils.VoUtils;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class OrganAddReq {
   @NotNull(groups = ValidGroup.Add.class)
   @ApiModelProperty(value = "父机构ID", required = true, allowEmptyValue = true)

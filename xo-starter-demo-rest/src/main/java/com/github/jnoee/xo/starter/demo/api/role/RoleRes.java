@@ -7,9 +7,11 @@ import com.github.jnoee.xo.starter.demo.entity.Role;
 import com.github.jnoee.xo.utils.VoUtils;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class RoleRes {
   @ApiModelProperty(value = "ID")
   private Long id;

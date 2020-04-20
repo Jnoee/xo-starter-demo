@@ -9,9 +9,11 @@ import com.github.jnoee.xo.starter.demo.entity.User;
 import com.github.jnoee.xo.utils.VoUtils;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class UserEditReq {
   @NotNull
   @ApiModelProperty(value = "用户ID", required = true)

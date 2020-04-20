@@ -53,7 +53,7 @@ public class AuthApi {
   }
 
   @ApiOperation(value = "1.1.3.获取系统所有权限列表")
-  @GetMapping(path = "privilegs")
+  @GetMapping(path = "get-all-privilegs")
   @ApiOperationSupport(order = 3)
   @RequiresPermissions("role:manage")
   public Privilegs getPrivilegs() {
